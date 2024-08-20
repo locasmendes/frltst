@@ -1,0 +1,25 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="openapi3_0.json" type="SwaggerCodegen" editBeforeRun="true" show_console_on_std_err="false" show_console_on_std_out="false">
+    <option name="allowRunningInParallel" value="false" />
+    <option name="customTemplatesPath" value="" />
+    <option name="envs">
+      <map />
+    </option>
+    <option name="generateToPath" value="C:\src\frl\src\main\gen" />
+    <option name="generationParameters">
+      <list />
+    </option>
+    <option name="generatorType" value="OPENAPI_GENERATOR_V6" />
+    <option name="jdkPath" value="C:\Program Files\JetBrains\IntelliJ IDEA 2024.1.4\jbr\bin\java.exe" />
+    <option name="language" value="java" />
+    <option name="passParentEnvs" value="true" />
+    <option name="programParameters" />
+    <option name="projectPathOnTarget" />
+    <option name="selectedOptions">
+      <list />
+    </option>
+    <option name="specificationPath" value="C:\src\frl\src\main\resources\static\openapi3_0.json" />
+    <option name="workingDirectory" value="C:\src\frl\src\main\resources\static" />
+    <method v="2" />
+  </configuration>
+</component>

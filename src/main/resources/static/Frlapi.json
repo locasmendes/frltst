@@ -1,0 +1,363 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de Cadastro de Estudantes",
+    "description": "API para gerenciar o cadastro de estudantes, incluindo operações de CRUD.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://18.227.81.223:8080/students",
+      "description": "Servidor AWS"
+    }
+  ],
+  "paths": {
+    "paths": "",
+    "/students/register": {
+      "post": {
+        "summary": "Cria um novo estudante",
+        "operationId": "createStudent",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "nome": {
+                    "type": "string"
+                  },
+                  "sobrenome": {
+                    "type": "string"
+                  },
+                  "matricula": {
+                    "type": "string"
+                  },
+                  "telefones": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "nome",
+                  "sobrenome",
+                  "matricula",
+                  ""
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Estudante criado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "nome": {
+                      "type": "string"
+                    },
+                    "sobrenome": {
+                      "type": "string"
+                    },
+                    "matricula": {
+                      "type": "string"
+                    },
+                    "telefones": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "nome",
+                    "sobrenome",
+                    "matricula",
+                    ""
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/students": {
+      "get": {
+        "summary": "Retorna uma lista com todos os estudantes",
+        "operationId": "getStudents",
+        "responses": {
+          "200": {
+            "description": "Uma lista de estudantes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "nome": {
+                        "type": "string"
+                      },
+                      "sobrenome": {
+                        "type": "string"
+                      },
+                      "matricula": {
+                        "type": "string"
+                      },
+                      "telefones": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "required": [
+                      "nome",
+                      "sobrenome",
+                      "matricula",
+                      ""
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/students/{id}": {
+      "get": {
+        "summary": "Retorna um estudante específico",
+        "operationId": "getStudentById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Estudante encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "nome": {
+                      "type": "string"
+                    },
+                    "sobrenome": {
+                      "type": "string"
+                    },
+                    "matricula": {
+                      "type": "string"
+                    },
+                    "telefones": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "nome",
+                    "sobrenome",
+                    "matricula",
+                    ""
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Estudante não encontrado"
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualiza os detalhes de um estudante",
+        "operationId": "updateStudent",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "nome": {
+                    "type": "string"
+                  },
+                  "sobrenome": {
+                    "type": "string"
+                  },
+                  "matricula": {
+                    "type": "string"
+                  },
+                  "telefones": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "nome",
+                  "sobrenome",
+                  "matricula",
+                  ""
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Estudante atualizado com sucesso"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Atualiza parcialmente um estudante",
+        "operationId": "patchStudent",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "nome": {
+                    "type": "string"
+                  },
+                  "sobrenome": {
+                    "type": "string"
+                  },
+                  "matricula": {
+                    "type": "string"
+                  },
+                  "telefones": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "nome",
+                  "sobrenome",
+                  "matricula",
+                  ""
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Estudante atualizado parcialmente"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleta um estudante",
+        "operationId": "deleteStudent",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Estudante deletado com sucesso"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Student": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "nome": {
+            "type": "string"
+          },
+          "sobrenome": {
+            "type": "string"
+          },
+          "matricula": {
+            "type": "string"
+          },
+          "telefones": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "nome",
+          "sobrenome",
+          "matricula",
+          ""
+        ]
+      }
+    }
+  }
+}
